@@ -4,6 +4,7 @@ import { useUserSync } from "@/hooks/useUserSync";
 import { ScrollView, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import PostComposer from "@/components/PostComposer";
+import PostsList from "@/components/PostsList";
 
 const HomeScreen = () => {
   useUserSync();
@@ -20,6 +21,7 @@ const HomeScreen = () => {
         showsVerticalScrollIndicator={false}
       >
         <PostComposer />
+        <PostsList />
       </ScrollView>
     </SafeAreaView>
   );
