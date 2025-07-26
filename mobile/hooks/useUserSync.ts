@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useAuth } from "@clerk/clerk-expo";
-import { useApiClient, userApi } from "../utils/api";
+import { useApiClient, userApi } from "@/utils/api";
 
 export const useUserSync = () => {
   const { isSignedIn } = useAuth();
@@ -9,7 +9,8 @@ export const useUserSync = () => {
 
   const syncUserMutation = useMutation({
     mutationFn: () => userApi.syncUser(api),
-    onSuccess: (response: any) => console.log("User synced successfully:", response.data.user),
+    onSuccess: (response: any) =>
+      console.log("User synced successfully:", response.data.user),
     onError: (error) => console.error("User sync failed:", error),
   });
 
