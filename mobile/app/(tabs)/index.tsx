@@ -1,11 +1,11 @@
-import { View, Text } from "react-native";
-import React from "react";
+import SignOutButton from "@/components/SignOutButton";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const HomeScreen = () => {
   return (
-    <View>
-      <Text>HomeScreen</Text>
-    </View>
+    <SafeAreaView className="items-center justify-center flex-1">
+      <SignOutButton />
+    </SafeAreaView>
   );
 };
 

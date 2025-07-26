@@ -5,10 +5,10 @@ export const useSignOut = () => {
   const { signOut } = useClerk();
 
   const handleSignOut = () => {
-    Alert.alert("Logout", "Are you sure you want to logout?", [
+    Alert.alert("Signout", "Are you sure you want to signout?", [
       { text: "Cancel", style: "cancel" },
       {
-        text: "Logout",
+        text: "Signout",
         style: "destructive",
         onPress: () => signOut(),
       },
