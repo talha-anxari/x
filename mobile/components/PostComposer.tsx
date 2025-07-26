@@ -1,7 +1,14 @@
 import { useCreatePost } from "@/hooks/useCreatePost";
 import { useUser } from "@clerk/clerk-expo";
 import { Feather } from "@expo/vector-icons";
-import { View, Text, Image, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  ActivityIndicator,
+} from "react-native";
 
 const PostComposer = () => {
   const {
@@ -18,12 +25,15 @@ const PostComposer = () => {
   const { user } = useUser();
 
   return (
-    <View className="border-b border-gray-100 p-4 bg-white">
+    <View className="p-4 bg-white border-b border-gray-100">
       <View className="flex-row">
-        <Image source={{ uri: user?.imageUrl }} className="w-12 h-12 rounded-full mr-3" />
+        <Image
+          source={{ uri: user?.imageUrl }}
+          className="w-12 h-12 mr-3 rounded-full"
+        />
         <View className="flex-1">
           <TextInput
-            className="text-gray-900 text-lg"
+            className="text-lg text-gray-900 outline-none"
             placeholder="What's happening?"
             placeholderTextColor="#657786"
             multiline
@@ -43,7 +53,7 @@ const PostComposer = () => {
               resizeMode="cover"
             />
             <TouchableOpacity
-              className="absolute top-2 right-2 w-8 h-8 bg-black bg-opacity-60 rounded-full items-center justify-center"
+              className="absolute items-center justify-center w-8 h-8 bg-black rounded-full top-2 right-2 bg-opacity-60"
               onPress={removeImage}
             >
               <Feather name="x" size={16} color="white" />
@@ -52,7 +62,7 @@ const PostComposer = () => {
         </View>
       )}
 
-      <View className="flex-row justify-between items-center mt-3">
+      <View className="flex-row items-center justify-between mt-3">
         <View className="flex-row">
           <TouchableOpacity className="mr-4" onPress={pickImageFromGallery}>
             <Feather name="image" size={20} color="#1DA1F2" />
@@ -83,7 +93,9 @@ const PostComposer = () => {
             ) : (
               <Text
                 className={`font-semibold ${
-                  content.trim() || selectedImage ? "text-white" : "text-gray-500"
+                  content.trim() || selectedImage
+                    ? "text-white"
+                    : "text-gray-500"
                 }`}
               >
                 Post

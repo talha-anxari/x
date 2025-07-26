@@ -56,7 +56,10 @@ export const useCreatePost = () => {
 
     if (permissionResult.status !== "granted") {
       const source = useCamera ? "camera" : "photo library";
-      Alert.alert("Permission needed", `Please grant permission to access your ${source}`);
+      Alert.alert(
+        "Permission needed",
+        `Please grant permission to access your ${source}`
+      );
       return;
     }
 
@@ -78,7 +81,10 @@ export const useCreatePost = () => {
 
   const createPost = () => {
     if (!content.trim() && !selectedImage) {
-      Alert.alert("Empty Post", "Please write something or add an image before posting!");
+      Alert.alert(
+        "Empty Post",
+        "Please write something or add an image before posting!"
+      );
       return;
     }
 
